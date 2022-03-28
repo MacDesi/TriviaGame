@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Trivia Game</title>
+		<link type="text/css" rel='stylesheet' href='TitlePageStyle.css'/>
+		<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open Sans"/>
+	</head>
+	<body>
+        
+        <style>
+        body {
+    font-family: Open Sans;
+    background-image: url("https://media3.giphy.com/media/BHNfhgU63qrks/giphy.gif?cid=790b761111827e948a74e64592dd543c50f5096d4d0cbf52&rid=giphy.gif");
+    background-repeat: repeat;
+    background-size: 1280px;
+}
+
+h1 {
+    text-align: center;
+}
+
+#title {
+    background-color: #f4b400;
+}
+
+#quiz {
+    text-indent: 10px;
+    display:none;
+}
+
+.button {
+    border:4px solid;
+    border-radius:5px;
+    width: 40px;
+    padding-left:5px;
+    padding-right: 5px;
+    position: relative;
+    float:right;
+    background-color: #DCDCDC;
+    color: black;
+    margin: 0 2px 0 2px;
+}
+
+.button.active {
+    background-color: #F8F8FF;
+    color: #525252;
+}
+
+button {
+    position: relative;
+    float:right;
+}
+
+.button a {
+    text-decoration: none;
+    color: black;
+}
+
+#gameContainer {
+    width:50%;
+    margin:auto;
+    padding: 0 25px 40px 10px;
+    background-color: lightcoral;
+    border:4px solid #B0E0E6;
+    border-radius:5px;
+    color: #FFFFFF;
+    font-weight: bold;
+    box-shadow: 5px 5px 5px #888;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#prev {
+    display:none;
+}
+
+#start {
+    display:none;
+    width: 90px;
+}
+
+#stage {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top:0;
+}
+
+#buttonContainer {
+  padding: 30px;
+}
+
+#titleContainer h1 {
+  text-align: center;
+  font-size: 56px;
+  padding: 0;
+  color: #fff;
+}
+
+#titleContainer h2 {
+  text-align: center;
+  font-size: 40px;
+  padding: 0;
+  color: #fff;
+}
+
+#gameHeader {
+  display: none;
+  padding: 0 20px;
+}
+
+
+.container {
+  padding:20px;
+}
+
+
+#startButton {
+  background-color: #f4b400;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+  line-height: 32px;
+  border-radius: 2px;
+  border:none;
+  outline: none;
+  width: 100%;
+  color:#fff;
+  font-size: 48px;
+  padding: 30px 0;
+  cursor: pointer;
+  font-family: "Roboto Mono", Roboto, sans-serif;
+  font-weight: 400;
+}
+
+#startButton:hover {
+  box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.26), 0 4px 15px 0 rgba(0, 0, 0, 0.26);
+  background-color: orangered;
+}
+
+
+
+#score {
+    color: #01BBFF;
+    text-align: center;
+    font-size: 30px;
+}
+
+#grid #question {
+    font-family: Helvetica, sans-serif;
+    font-size: 30px;
+    color: white;
+
+}
+
+.buttons {
+    margin-top: 30px;
+}
+
+#btn0, #btn1, #btn2, #btn3 {
+    background-color: #f4b400;
+    width: 250px;
+    font-size: 20px;
+    color: #fff;
+    border: 1px solid #1D3C6A;
+    margin: 10px 40px 10px 0px;
+    padding: 10px 10px;
+}
+
+#btn0:hover, #btn1:hover, #btn2:hover, #btn3:hover {
+    cursor: pointer;
+    background-color: #01BBFF;
+    color: darkblue;
+}
+
+#btn0:focus, #btn1:focus, #btn2:focus, #btn3:focus {
+    outline: 0;
+}
+
+#progress {
+    color: #2b2b2b;
+    font-size: 18px;
+}
+#titleContainer h3 {
+    text-align: center;
+    color: white;
+}
+
+
+
+#titleContainer h4 {
+    text-align: center;
+    color: white;
+}
+
+img {
+    max-width: 100%;
+    max-height: 300px;
+    height: 100%
+}
+
+
+        </style>
+        
+         <div id="stage"> 
+        <div id="gameContainer">
+			<div id="title">
+				<h1></h1>
+			</div>
+   			<br/>
+  			<div id="quiz"></div>
+            <div id ="images">
+       
+            
+            </div> 
+    		<div class="button" id="next"><a href="#">Next</a></div>
+    		<div class="button" id="prev"><a href="#">Prev</a></div>
+    		<div class="button" id="start"> <a href="#">Start Over</a></div>
+    		<!-- <button class="" id="next">Next</a></button>
+    		<button class="" id="prev">Prev</a></button>
+    		<button class="" id="start"> Start Over</a></button> -->
+    	</div>
+        
+     <div id="modal_window">
+</div>
+    
+   <div id="buttonContainer">
+                       <button onclick="startGame()" id= "startButton">CLICK HERE <strong>TO START PLAYING</strong></button> 
+
+     <div id="titleContainer">
+        <h2>ANIME AND CARTOON TRIVIA</h2><br>
+         <h3>Directions</h3>
+         <h4>This is a trivia game that tests to see if you know the latest cartoons and anime on tv/streaming services.<br> Choose the show (answer) that matches the gif image.</h4>
+         
+        <div id="gameHeader">
+            
+            
+            
+        </div>
+         
+         
+     </div>
+    
+       
+       
+     <embed src="Alone.mp3" loop="true" autostart="true" hidden="true" type="audio/mpeg"/>
+    
+   </div>
+ </div>
+       
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        
+		<script>
+document.getElementById("gameContainer").style.display = "none";
+
+function startGame() {
+  document.getElementById("buttonContainer").style.display="none";
+  document.getElementById("titleContainer").style.display="none";
+  document.getElementById("gameContainer").style.display="block"
+}
+//I used an official shuffle function from online
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+    
+}
+(function() {
+  /*var images = ["gif1.gif","gif2.gif","gif3.gif","gif4.gif","gif5.gif","gif6.gif","gif7.gif",
+               "gif8.gif","gif9.gif","gif10.gif","gif11.gif","gif12.gif","gif13.gif","gif14.gif",
+               "gif15.gif","gif16.gif","gif17.gif","gif18.gif","gif19.gif","gif20.gif"]; */
+    
+    var imgContainer = document.getElementById("images");
+
+    
+  var questions = [{
+    image: "https://media1.tenor.com/images/a7aef66d8f5c1ccdfab94352ae20f2df/tenor.gif?itemid=4921204",
+    question: "What show is this?",
+    choices: ["Charlie's World", "Steven's Universe", "Kumaar's Domain", "Bobby's Galaxy"],
+    correctAnswer: "Steven's Universe",
+    
+  }, {
+    image: "https://media0.giphy.com/media/citBl9yPwnUOs/giphy.gif",  
+    question: "What show is this?",
+    choices: ["The Simpletons", "The Blazquez", "The Johnsons", "The Simpsons"],
+    correctAnswer: "The Simpsons"
+  }, {
+    image: "https://media.giphy.com/media/sU1eJzAHBIkeY/giphy.gif",  
+    question: "What show is this?",
+    choices: ["Annoy Dad", "Fat Father", "American Dad", "Moby Dick"],
+    correctAnswer: "American Dad"
+  }, {
+    image: "https://media1.tenor.com/images/e7770c55de1a48aecb05b080958fe4c1/tenor.gif?itemid=10458949", 
+    question: "What show is this?",
+    choices: ["Spongeboy", "Spongebob Tortellini", "Spongebob SquarePants", "David Hasslehoff"],
+    correctAnswer: "Spongebob SquarePants"
+  }, {
+    image: "https://media1.giphy.com/media/hccxH5OlGHiJG/source.gif",    
+    question: "What show is this?",
+    choices: ["The 4 Horseman", "Bojack Horseman", "HorseDude", "HorseJack"],
+    correctAnswer: "Bojack Horseman"
+  }, {
+      
+    image: "https://vignette.wikia.nocookie.net/kimetsu-no-yaiba/images/9/9b/Zenitsu_using_Thunderclap_and_Flash_on_Tongue_Demon.gif",   
+    question: "What show is this?",
+    choices: ["Demon Slayer", "Samurai Slayer", "Battle of Samurai", "Battle of Samurai II"],
+    correctAnswer: "Demon Slayer"
+  }, {
+      
+    image: "https://media1.giphy.com/media/l0HlNQ17dWmHyk15C/source.gif",   
+    question: "What show is this?",
+    choices: ["South Park", "North Park", "East Park", "West Park"],
+    correctAnswer: "South Park"
+  }, {
+      
+    image: "https://media1.giphy.com/media/l378BzHA5FwWFXVSg/giphy.gif",  
+    question: "What show is this?",
+    choices: ["Ajoy & Daniel", "Rick & Morty", "Connor & Chase", "Phineas & Ferb"],
+    correctAnswer: "Rick & Morty"
+  }, {
+      
+    image: "https://media2.giphy.com/media/1r8YMI7GLsnGLWy53t/source.gif",  
+    question: "What show is this?",
+    choices: ["Mom's Pies", "Dan's Donuts", "Bob's Burgers", "Ajoy's Code"],
+    correctAnswer: "Bob's Burgers"
+  }, {
+      
+    image: "https://media.giphy.com/media/H6EikJ01KkyUEyh6wb/giphy.gif",  
+    question: "What show is this?",
+    choices: ["Family Woman", "Proud Family", "One Guy", "Family Guy"],
+    correctAnswer: "Family Guy"
+  }, {
+      
+    image: "https://media1.giphy.com/media/ny4T19nSsAselOmAvr/giphy.gif",  
+    question: "What show is this?",
+    choices: ["Castlevania", "Black Clover", "Fire Emblem", "The Warriors Plight"],
+    correctAnswer: "Castlevania"
+  }, {
+      
+    image: "https://media1.tenor.com/images/a6238ffca2bdb27d640fc821dcc99aea/tenor.gif?itemid=10846971",  
+    question: "What show is this?",
+    choices: ["Devilman", "Devilman Crybaby", "Those Who Slither", "Satan's Child"],
+    correctAnswer:  "Devilman Crybaby"
+  }, {
+      
+    image: "https://data.whicdn.com/images/325048469/original.gif",  
+    question: "What show is this?",
+    choices: ["The Promised Neverland", "Orphan", "The Orphanage", "Gracefiled"],
+    correctAnswer:  "The Promised Neverland"
+  }, {
+      
+    image: "https://media1.tenor.com/images/cbe75a6d646815c6219695575ef9b952/tenor.gif?itemid=13532173",  
+    question: "What show is this?",
+    choices: ["Princess She-Ra", "She-Ra and the princesses of power", "Princess of Power", "Pink Princess"],
+    correctAnswer: "She-Ra and the princesses of power"
+  }, {
+    image: "https://media.giphy.com/media/fYfbZs4IjXLQ54HPea/giphy.gif",   
+    question: "What show is this?",
+    choices: ["Love, Death, and Robots", "Robots can't love", "Blade Runner", "Black Mirror"],
+    correctAnswer: "Love, Death, and Robots"
+  }, {
+    image: "https://media3.giphy.com/media/5YbO9L8WBqN6qa4Gnq/source.gif",  
+    question: "What show is this?",
+    choices: ["Trump Nation", "Trump America", "Our Cartoon President", "Keep America Great"],
+    correctAnswer:  "Our Cartoon President"
+  }, {
+    image: "https://steamuserimages-a.akamaihd.net/ugc/914665966094175114/8C128F6B2FBD88E29192B93B1CAFC62612A29747/",   
+    question: "What show is this?",
+    choices: ["Violet Evergarden", "Red Roses", "Violetta", "Blue"],
+    correctAnswer: "Violet Evergarden"
+  }, {
+    image: "https://i.pinimg.com/originals/e8/3b/77/e83b77390fa47725fa4f8a30ad10b513.gif", 
+    question: "What show is this??",
+    choices: ["Heroes Academy", "The Academy of Heroes", "My Hero Academia", "Heroes Vs. Villains" ],
+    correctAnswer:"My Hero Academia"
+  }, {
+    image: "https://thumbs.gfycat.com/BothDisgustingKoodoo-size_restricted.gif",   
+    question: "What show is this?",
+    choices: ["Accel World", "Sword Art Online: Alicization","Log Horizon", "Ready Player Virtual"],
+    correctAnswer:  "Sword Art Online: Alicization"
+      
+  }, {
+    image: "https://media.giphy.com/media/WWwvqjINcgSDm/giphy.gif",   
+    question: "What show is this?",
+    choices: ["Kumaaar's Kitchen", "Chef Boy", "Cooking Master 2000", "Food Wars"],
+    correctAnswer: "Food Wars"
+  }];
+  
+  questions = shuffle(questions);
+    
+  var questionCounter = 0; //Tracks question number
+  var selections = []; //Array containing user choices
+  var quiz = $('#quiz'); //Quiz div object
+  var answerHighlighted = false;
+  var numCorrect = 0;
+  
+  // Display initial question
+  displayNext();
+  
+  // Click handler for the 'next' button
+  $('#next').on('click', function (e) {
+    e.preventDefault();
+    
+    // Suspend click listener during fade animation
+    if(quiz.is(':animated')) {        
+      return false;
+    }
+    choose();
+    
+    // If no user selection, progress is stopped
+    if (isNaN(selections[questionCounter])) {
+      alert('Please make a selection!');
+    } else if (!answerHighlighted) {
+        if ($('input[name="answer"][data-correct="true"]')[0].checked) {
+            numCorrect++;
+        }
+        
+        $('input[name="answer"][data-correct="true"]').parent().append(" - CORRECT");
+        
+        answerHighlighted = true;
+    } else {
+      questionCounter++;
+      displayNext();
+    }
+  });
+  
+  // Click handler for the 'prev' button
+  $('#prev').on('click', function (e) {
+    e.preventDefault();
+    
+    if(quiz.is(':animated')) {
+      return false;
+    }
+    choose();
+    questionCounter--;
+    displayNext();
+  });
+  
+  // Click handler for the 'Start Over' button
+  $('#start').on('click', function (e) {
+    e.preventDefault();
+    
+    if(quiz.is(':animated')) {
+      return false;
+    }
+    selections = [];
+    displayNext();
+    $('#start').hide();
+  });
+  
+  // Animates buttons on hover
+  $('.button').on('mouseenter', function () {
+    $(this).addClass('active');
+  });
+  $('.button').on('mouseleave', function () {
+    $(this).removeClass('active');
+  });
+  
+  // Creates and returns the div that contains the questions and 
+  // the answer selections
+  function createQuestionElement(index) {
+    var qElement = $('<div>', {
+      id: 'question'
+    });
+      
+    qElement.append('<h2>Question ' + index + '</h2>');
+    
+    var images = $('<img>').attr("src", questions[index].image);
+    qElement.append(images);
+    
+    
+    var question = $('<p>').append(questions[index].question);
+    qElement.append(question);
+      
+    var radioButtons = createRadios(index);
+    qElement.append(radioButtons);
+    
+    return qElement;
+  }
+  
+  // Creates a list of the answer choices as radio inputs
+  function createRadios(index) {
+    var radioList = $('<ul>');
+    var item;
+    var input = '';
+    questions[index].choices = shuffle(questions[index].choices);
+      
+    for (var i = 0; i < questions[index].choices.length; i++) {
+      item = $('<li>');
+      input = '<input type="radio" name="answer" data-correct="' + (questions[index].choices[i] == questions[index].correctAnswer) + '" value=' + i + ' />';
+      input += questions[index].choices[i];
+      item.append(input);
+      radioList.append(item);
+    }
+    return radioList;
+  }
+  
+  // Reads the user selection and pushes the value to an array
+  function choose() {
+    selections[questionCounter] = +$('input[name="answer"]:checked').val();
+  }
+  
+  // Displays next requested element
+  function displayNext() {
+    answerHighlighted = false;
+    quiz.fadeOut(function() {
+      $('#question').remove();
+      
+      if(questionCounter < questions.length){
+        var nextQuestion = createQuestionElement(questionCounter);
+        quiz.append(nextQuestion).fadeIn();
+        if (!(isNaN(selections[questionCounter]))) {
+          $('input[value='+ selections[questionCounter]+']').prop('checked', true);
+        }
+        
+        // Controls display of 'prev' button
+        if(questionCounter === 1){
+          $('#prev').show();
+        } else if(questionCounter === 0){
+          
+          $('#prev').hide();
+          $('#next').show();
+        }
+      }else {
+        var scoreElem = displayScore();
+        quiz.append(scoreElem).fadeIn();
+        $('#next').hide();
+        $('#prev').hide();
+        $('#start').show();
+      }
+    });
+  }
+  
+  // Computes score and returns a paragraph element to be displayed
+  function displayScore() {
+    var score = $('<p>',{id: 'question'});
+    
+    
+    score.append('You got ' + numCorrect + ' questions out of ' +
+                 questions.length + ' right!!!');
+    return score;
+  }
+})();
+        </script>
+	</body>
+</html>
