@@ -8,11 +8,12 @@
 	<body>
         
         <style>
-        body {
-    font-family: Open Sans;
-    background-image: url("https://media3.giphy.com/media/BHNfhgU63qrks/giphy.gif?cid=790b761111827e948a74e64592dd543c50f5096d4d0cbf52&rid=giphy.gif");
-    background-repeat: repeat;
-    background-size: 1280px;
+body {
+    font-family: "Open Sans", sans-serif;
+    background-image: linear-gradient(to bottom right, #F52626, #F50349);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
 }
 
 h1 {
@@ -25,17 +26,17 @@ h1 {
 
 #quiz {
     text-indent: 10px;
-    display:none;
+    display: none;
 }
 
 .button {
-    border:4px solid;
-    border-radius:5px;
+    border: 4px solid;
+    border-radius: 5px;
     width: 40px;
-    padding-left:5px;
+    padding-left: 5px;
     padding-right: 5px;
     position: relative;
-    float:right;
+    float: right;
     background-color: #DCDCDC;
     color: black;
     margin: 0 2px 0 2px;
@@ -48,7 +49,7 @@ h1 {
 
 button {
     position: relative;
-    float:right;
+    float: right;
 }
 
 .button a {
@@ -57,13 +58,13 @@ button {
 }
 
 #gameContainer {
-    width:50%;
-    margin:auto;
+    width: 50%;
+    margin: auto;
     padding: 0 25px 40px 10px;
-    background-color: lightcoral;
-    border:4px solid #B0E0E6;
-    border-radius:5px;
-    color: #FFFFFF;
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 4px solid #B0E0E6;
+    border-radius: 5px;
+    color: #525252;
     font-weight: bold;
     box-shadow: 5px 5px 5px #888;
 }
@@ -75,130 +76,83 @@ ul {
 }
 
 #prev {
-    display:none;
+    display: none;
 }
 
 #start {
-    display:none;
+    display: none;
     width: 90px;
 }
 
 #stage {
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  top:0;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
 }
 
 #buttonContainer {
-  padding: 30px;
+    padding: 30px;
+}
+
+#titleContainer {
+    text-align: center;
+    color: white;
 }
 
 #titleContainer h1 {
-  text-align: center;
-  font-size: 56px;
-  padding: 0;
-  color: #fff;
+    font-size: 56px;
+    padding: 0;
+    color: white;
 }
 
 #titleContainer h2 {
-  text-align: center;
-  font-size: 40px;
-  padding: 0;
-  color: #fff;
-}
-
-#gameHeader {
-  display: none;
-  padding: 0 20px;
-}
-
-
-.container {
-  padding:20px;
-}
-
-
-#startButton {
-  background-color: #f4b400;
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
-  line-height: 32px;
-  border-radius: 2px;
-  border:none;
-  outline: none;
-  width: 100%;
-  color:#fff;
-  font-size: 48px;
-  padding: 30px 0;
-  cursor: pointer;
-  font-family: "Roboto Mono", Roboto, sans-serif;
-  font-weight: 400;
-}
-
-#startButton:hover {
-  box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.26), 0 4px 15px 0 rgba(0, 0, 0, 0.26);
-  background-color: orangered;
-}
-
-
-
-#score {
-    color: #01BBFF;
-    text-align: center;
-    font-size: 30px;
-}
-
-#grid #question {
-    font-family: Helvetica, sans-serif;
-    font-size: 30px;
+    font-size: 90px;
+    padding: 0;
     color: white;
-
 }
 
-.buttons {
-    margin-top: 30px;
-}
-
-#btn0, #btn1, #btn2, #btn3 {
-    background-color: #f4b400;
-    width: 250px;
-    font-size: 20px;
-    color: #fff;
-    border: 1px solid #1D3C6A;
-    margin: 10px 40px 10px 0px;
-    padding: 10px 10px;
-}
-
-#btn0:hover, #btn1:hover, #btn2:hover, #btn3:hover {
-    cursor: pointer;
-    background-color: #01BBFF;
-    color: darkblue;
-}
-
-#btn0:focus, #btn1:focus, #btn2:focus, #btn3:focus {
-    outline: 0;
-}
-
-#progress {
-    color: #2b2b2b;
-    font-size: 18px;
-}
 #titleContainer h3 {
     text-align: center;
     color: white;
+    font-size: 55px
+
 }
-
-
 
 #titleContainer h4 {
     text-align: center;
     color: white;
+    font-size: 25px
 }
 
-img {
-    max-width: 100%;
-    max-height: 300px;
-    height: 100%
+.container {
+    padding: 20px;
+}
+
+#startButton {
+    background-color: #f4b400;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+    line-height: 32px;
+    border-radius: 2px;
+    border: none;
+    outline: none;
+    width: 100%;
+    color: #fff;
+    font-size: 48px;
+    padding: 30px 0;
+    cursor: pointer;
+    font-family: "Roboto Mono", Roboto, sans-serif;
+    font-weight: 400;
+}
+
+#startButton:hover {
+    box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.26), 0 4px 15px 0 rgba(0, 0, 0, 0.26);
+    background-color: orangered;
+}
+
+#score {
+    color: #01BBFF;
+    text
 }
 
 
@@ -230,7 +184,7 @@ img {
                        <button onclick="startGame()" id= "startButton">CLICK HERE <strong>TO START PLAYING</strong></button> 
 
      <div id="titleContainer">
-        <h2>ANIME AND CARTOON TRIVIA</h2><br>
+        <h2>CARTOON & ANIME TRIVIA</h2><br>
          <h3>Directions</h3>
          <h4>This is a trivia game that tests to see if you know the latest cartoons and anime on tv/streaming services.<br> Choose the show (answer) that matches the gif image.</h4>
          
@@ -522,7 +476,7 @@ function shuffle(array) {
       $('#question').remove();
       
       if(questionCounter < questions.length){
-        var nextQuestion = createQuestionElement(questionCounter);
+        var nextQuestion = createQuestionElement(questionCounter + 1);
         quiz.append(nextQuestion).fadeIn();
         if (!(isNaN(selections[questionCounter]))) {
           $('input[value='+ selections[questionCounter]+']').prop('checked', true);
